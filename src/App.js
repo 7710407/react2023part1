@@ -4,15 +4,19 @@ import Header from './components/Header'
 import Contact from './pages/Contact'
 
 function App() {
-  const bodyContent = <p><i>This is the homepage.</i></p>
+  const myStyle = {
+    backgroundColor: "blue",
+    fontSize: "30px"
+  }
+
   return (
-    <>
-      <Header />
-      <h1 className='blue'>Homepage</h1>
-      {bodyContent}
-      <Contact />
-      <Footer />
-    </>
+  <>
+    <Header />
+    <h1 className='blue'>Homepage</h1>
+    <p style={myStyle}>This is the homepage.</p>
+    <Contact />
+    <Footer />
+  </>
   );
 }
 
