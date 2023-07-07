@@ -2,23 +2,21 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header'
 import Contact from './pages/Contact'
+import Home from './pages/Home';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 
 function App() {
-  const myStyle = {
-    backgroundColor: "blue",
-    fontSize: "30px"
-  }
-
-  const logo = require('./assets/images/logo192.png')
 
   return (
   <>
     <Header />
-    <h1 className='blue'>Homepage</h1>
-    <p style={myStyle}>This is the homepage.</p>
-    <Contact />
-    {/* <img src={logo} alt='logo'/> */}
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='contact-us' element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
     <Footer />
   </>
   );
