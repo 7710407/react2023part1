@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import Footer from './components/Footer';
+import Header from './components/Header'
+import Contact from './pages/Contact'
 
 function App() {
-  const header = <nav className='nav-bar'>
-    <p>Logo</p>
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/contact-us">Contact</a>
-      </li>
-    </ul>
-    </nav>
+  const bodyContent = <p><i>This is the homepage.</i></p>
   return (
     <>
-      {header}
-      <h1>Homepage</h1>
-      <p>This is the homepage.</p>
+      <Header />
+      <h1 className='blue'>Homepage</h1>
+      {bodyContent}
+      <Contact />
+      <Footer />
     </>
   );
 }

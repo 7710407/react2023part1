@@ -57,3 +57,19 @@
   text-decoration: none;
   color: #0d47a1;
 }
+
+.footer {
+  display: flex;
+  padding: 40px;
+  font-size: 14px;
+  color: #000000;
+  justify-content: center;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
