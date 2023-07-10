@@ -18,14 +18,21 @@ function Contact() {
     // }, [])
 
     useEffect(() => {
-        fetchData()
+        let processing = true
+        fetchData(processing)
+        return () => {
+            processing = false
+        }
     }, [])
 
-    const fetchData = async() => {
+    const fetchData = async(processing) => {
         await fetch('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
-        .then(data => {setSelectData(data) 
-            })
+        .then(data => {
+            if(processing) {
+                setSelectData(data) 
+            }
+        })
         .catch(err => console.log(err))
     }
 
