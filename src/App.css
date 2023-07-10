@@ -94,6 +94,10 @@
   color: red;
 }
 
+.success {
+  color: green;
+}
+
 .nav-bar {
   display: flex;
   justify-content: space-between;
