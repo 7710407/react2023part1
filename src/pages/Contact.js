@@ -19,30 +19,15 @@ function Contact() {
 
     useEffect(() => {
         let processing = true
-        fetchData(processing)
+        axiosFetchData(processing)
         return () => {
             processing = false
         }
     }, [])
 
-    const fetchData = async(processing) => {
-        await fetch('https://jsonplaceholder.typicode.com/users')
-        .then(res => res.json())
-        .then(data => {
-            if(processing) {
-                setSelectData(data) 
-            }
-        })
-        .catch(err => console.log(err))
-    }
-
     const axiosFetchData = async(processing) => {
-        // const options = {
-        //     email: email,
-        //     message: message
-        // }
 
-        await axios.post('https://jsonplaceholder.typicode.com/users')
+        await axios.get('https://jsonplaceholder.typicode.com/users')
             .then(res => {
                 if (processing)
                     setSelectData(res.data)
