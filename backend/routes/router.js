@@ -1,10 +1,20 @@
 const express = require('express')
 const router = express.Router()
+const schemas = require('../models/schemas')
 
-router.post('/contact', (req, res) => {
+router.post('/contact', async (req, res) => {
     const {email, website, message} = req.body
-    console.log(email + ' | ' + website + ' | ' + message)
-    res.send('Message sent. Thank you.')
+    // console.log(email + ' | ' + website + ' | ' + message)
+
+    const contactData = {email: email, website: website, message: message}
+    const newConstact = new schemas.Contact(contactData)
+    const saveContact = await newConstact.save()
+    if(saveContact) {
+        res.send('Message sent. Thank you.')
+    } else {
+        res.send('Failed to send message.')
+    }
+    res.end()
 })
 
 router.get('/users', (req, res) => {
